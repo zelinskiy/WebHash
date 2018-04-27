@@ -1,0 +1,65 @@
+name:                WebHash
+version:             0.1.0.0
+-- synopsis:
+-- description:
+homepage:            https://github.com/githubuser/WebHash#readme
+license:             BSD3
+license-file:        LICENSE
+author:              Author name here
+maintainer:          example@example.com
+copyright:           2018 Author name here
+category:            Web
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Lib, Hash
+  build-depends:       aeson
+                     , base >= 4.7 && < 5
+                     , binary >= 0.8.3.0
+                     , binary >= 0.8.3.0
+                     , bytestring >= 0.10.8.1
+                     , containers >= 0.5.7.1
+                     , random >= 1.1
+                     , servant-multipart
+                     , servant-server
+                     , wai
+                     , warp
+  default-language:    Haskell2010
+
+executable WebHash-exe
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       WebHash
+                     , base
+                     , binary >= 0.8.3.0
+                     , binary >= 0.8.3.0
+                     , bytestring >= 0.10.8.1
+                     , containers >= 0.5.7.1
+                     , random >= 1.1
+  default-language:    Haskell2010
+
+test-suite WebHash-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       WebHash
+                     , aeson
+                     , base
+                     , binary >= 0.8.3.0
+                     , binary >= 0.8.3.0
+                     , bytestring >= 0.10.8.1
+                     , containers >= 0.5.7.1
+                     , hspec
+                     , hspec-wai
+                     , hspec-wai-json
+                     , random >= 1.1
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+source-repository head
+  type:     git
+  location: https://github.com/githubuser/WebHash
